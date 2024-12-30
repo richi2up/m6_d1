@@ -1,0 +1,22 @@
+<h1>Editar Película</h1>
+
+<%= form_with(model: @movie, local: true) do |form| %>
+  <div class="mb-3">
+    <%= form.label :title, "Título" %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :director, "Director" %>
+    <%= form.text_field :director, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :client_id, "Asignar Cliente" %>
+    <%= form.select :client_id, @clients.map { |c| [c.name, c.id] }, include_blank: true, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.submit "Guardar", class: "btn btn-primary" %>
+  </div>
+<% end %>

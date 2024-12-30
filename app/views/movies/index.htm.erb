@@ -1,0 +1,25 @@
+<h1>Listado de Películas</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Director</th>
+      <th>Cliente</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%= movie.title %></td>
+        <td><%= movie.director %></td>
+        <td><%= movie.client ? movie.client.name : 'Sin cliente' %></td>
+        <td>
+          <%= link_to 'Editar', edit_movie_path(movie), class: "btn btn-warning" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
